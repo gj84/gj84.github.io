@@ -1,0 +1,9 @@
+* { font-family:monospace; font-size:1em; border:0; margin:0; padding:0; list-style:none; font-weight:normal; }
+h1, h2, h3, h4, h5, h6, ul, ol, p { margin-top:1em }
+ol li { list-style: decimal inside }
+h1, h2, h3, h4, h5, h6 { color:#00f }
+h1 {margin-bottom: 3em;}
+
+body { width: 80ex; margin: 1em auto; margin-top: 3em;}
+@media print { body { width:auto; font-size:10pt } a { text-decoration: none } }
+.published {margin-right: 1em; font-size: 7pt; color: gray}

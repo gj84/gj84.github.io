@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Tue, 29 Oct 2013 23:53:06 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>chessboardjs + chess.js pgn viewer</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="chessboardjs/css/chessboard-0.3.0.min.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="chartist/chartist.min.css">
+    <script src="chartist/chartist.js"></script>
+
+
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-4">
+          <div id="board" style="width: 100%;"></div>
+          <!--
+          <div id="board-buttons">
+            <button type="button" class="btn btn-default" id="btnStart"><i class="fa fa-fast-backward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnPrevious"><i class="fa fa-step-backward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnNext"><i class="fa fa-step-forward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnEnd"><i class="fa fa-fast-forward fa-lg"></i></button>
+          </div>
+        -->
+        </div>
+        <div class="col-xs-8">
+          <!--<form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="gameSelect" class="col-xs-4 control-label">Select game:</label>
+              <div class="col-xs-8">
+                <select id="gameSelect" class="form-control input-sm" onchange="loadGame(this.value);return false;"></select>
+              </div>
+            </div>
+          </form>-->
+          <div id="game-data">
+          </div>
+          
+          <div id="board-buttons">
+            <button type="button" class="btn btn-default" id="btnStart"><i class="fa fa-fast-backward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnPrevious"><i class="fa fa-step-backward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnNext"><i class="fa fa-step-forward fa-lg"></i></button>
+            <button type="button" class="btn btn-default" id="btnEnd"><i class="fa fa-fast-forward fa-lg"></i></button>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+    <script src="chessboardjs/js/chessboard-0.3.0.min.js"></script>
+    <script src="chessjs/chess.js"></script>
+    <script src="js/pgnviewer.js"></script>
+<div class="ct-chart ct-perfect-fourth"></div>
+  </body>
+    <script type="text/javascript">
+    pgnData = [['[Event "?"]',
+'[Site "Dubrovnik"]',
+'[Date "1951.??.??"]',
+'[Round "?"]',
+'[White "Castaldi"]',
+'[Black "Reschewski"]',
+'[Result "*"]',
+'',
+'1.Nf3 d5 2.g3 Nf6 3.Bg2 g6 4.O-O Bg7 5.c4 d4 6.e3 c5 7.exd4 cxd4 8.d3 Nc6 9.Qa4 O-O 10.b4 Nd7 11.Nbd2 a5 12.Ba3 axb4 13.Qxa8 Nb6 *']];
+
+    pgnviewer_view(pgnData);
+
+ /*1.Cf3 d5 2.g3 Cf6 3.Ag2 g6 4.0-0 Ag7 5.c4 d4 6.e3 c5 7.exd4 cxd4 8.d3 Cc6 9.Da4 0-0 10.b4? Cd7 11.Cbd2 a5! 12.Aa3? axb4!! 13.Dxa8 Cb6 */
+/*
+var game = [ 'rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1', 'rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2', 'rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2', 'rnbqkb1r/ppp1pppp/5n2/3p4/8/5NP1/PPPPPP1P/RNBQKB1R w KQkq - 1 3', 'rnbqkb1r/ppp1pppp/5n2/3p4/8/5NP1/PPPPPPBP/RNBQK2R b KQkq - 2 3', 'rnbqkb1r/ppp1pp1p/5np1/3p4/8/5NP1/PPPPPPBP/RNBQK2R w KQkq - 0 4', 'rnbqkb1r/ppp1pp1p/5np1/3p4/8/5NP1/PPPPPPBP/RNBQ1RK1 b kq - 1 4', 'rnbqk2r/ppp1ppbp/5np1/3p4/8/5NP1/PPPPPPBP/RNBQ1RK1 w kq - 2 5', 'rnbqk2r/ppp1ppbp/5np1/3p4/2P5/5NP1/PP1PPPBP/RNBQ1RK1 b kq c3 0 5', 'rnbqk2r/ppp1ppbp/5np1/8/2Pp4/5NP1/PP1PPPBP/RNBQ1RK1 w kq - 0 6', 'rnbqk2r/ppp1ppbp/5np1/8/2Pp4/4PNP1/PP1P1PBP/RNBQ1RK1 b kq - 0 6', 'rnbqk2r/pp2ppbp/5np1/2p5/2Pp4/4PNP1/PP1P1PBP/RNBQ1RK1 w kq c6 0 7', 'rnbqk2r/pp2ppbp/5np1/2p5/2PP4/5NP1/PP1P1PBP/RNBQ1RK1 b kq - 0 7', 'rnbqk2r/pp2ppbp/5np1/8/2Pp4/5NP1/PP1P1PBP/RNBQ1RK1 w kq - 0 8', 'rnbqk2r/pp2ppbp/5np1/8/2Pp4/3P1NP1/PP3PBP/RNBQ1RK1 b kq - 0 8', 'r1bqk2r/pp2ppbp/2n2np1/8/2Pp4/3P1NP1/PP3PBP/RNBQ1RK1 w kq - 1 9', 'r1bqk2r/pp2ppbp/2n2np1/8/Q1Pp4/3P1NP1/PP3PBP/RNB2RK1 b kq - 2 9', 'r1bq1rk1/pp2ppbp/2n2np1/8/Q1Pp4/3P1NP1/PP3PBP/RNB2RK1 w - - 3 10', 'r1bq1rk1/pp2ppbp/2n2np1/8/QPPp4/3P1NP1/P4PBP/RNB2RK1 b - b3 0 10', 'r1bq1rk1/pp1nppbp/2n3p1/8/QPPp4/3P1NP1/P4PBP/RNB2RK1 w - - 1 11', 'r1bq1rk1/pp1nppbp/2n3p1/8/QPPp4/3P1NP1/P2N1PBP/R1B2RK1 b - - 2 11', 'r1bq1rk1/1p1nppbp/2n3p1/p7/QPPp4/3P1NP1/P2N1PBP/R1B2RK1 w - a6 0 12', 'r1bq1rk1/1p1nppbp/2n3p1/p7/QPPp4/B2P1NP1/P2N1PBP/R4RK1 b - - 1 12', 'r1bq1rk1/1p1nppbp/2n3p1/8/QpPp4/B2P1NP1/P2N1PBP/R4RK1 w - - 0 13', 'Q1bq1rk1/1p1nppbp/2n3p1/8/1pPp4/B2P1NP1/P2N1PBP/R4RK1 b - - 0 13', 'Q1bq1rk1/1p2ppbp/1nn3p1/8/1pPp4/B2P1NP1/P2N1PBP/R4RK1 w - - 1 14',];
+
+/*
+var cfg = {
+  showNotation: false,
+  position: 'start'
+};
+var board1 = new ChessBoard('board1', cfg);*/
+
+var chart = new Chartist.Line('.ct-chart', {
+  labels: ['1.', '1..', '2.', '2..', '3.', '3..','4.', '4..', '5.', '5..', '6.', '6..',"7.","7..","8.","8..","9.","9..","10.","10..","11.","11..","12.","12..","13.","13.."],
+  series: [
+    [0.28, 0.16, 0.12, -0.40, -0.20, -0.28, 0.12, 0.12, 0.16, 0.24, 0.16, -0.04, 0.12,  0.12, 0.00, -0.12, -0.56, -0.40, -0.44, -0.52, -1.37, -1.37, -2.70, -2.70, -2.88, -2.66]
+  ]
+}, {
+  low: -3,
+  high: 3,
+  showArea: true,
+  showPoint: true,
+  fullWidth: true
+});
+
+chart.on('draw', function(data) {
+  if(data.type === 'line' || data.type === 'area') {
+    data.element.animate({
+      d: {
+        begin: 2000 * data.index,
+        dur: 2000,
+        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+        to: data.path.clone().stringify(),
+        easing: Chartist.Svg.Easing.easeOutQuint
+      }
+    });
+  }
+});
+/*
+var $chart = $('.ct-chart');
+
+$chart.on('mouseenter', '.ct-point', function() {
+  var $point = $(this),
+    //value = $point.attr('ct:parent');
+    index = $point.index() - 2;
+    goToMove(index);
+    console.log(index);
+});
+
+*/
+
+
+
+var $chart = $('.ct-chart');
+var $toolTip = $chart
+  .append('<div class="tooltip"></div>')
+  .find('.tooltip')
+  .hide();
+
+$chart.on('mouseenter', '.ct-point', function() {
+  var $point = $(this),
+    value = $point.attr('ct:value');
+  $toolTip.html("caca" + '<br>' + value).show();
+});
+
+$chart.on('mouseleave', '.ct-point', function() {
+  $toolTip.hide();
+});
+
+$chart.on('mousemove', function(event) {
+  $toolTip.css({
+    left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
+    top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
+  });
+});
+
+/*
+var cfg = {
+  showNotation: false,
+  position: 'start'
+};
+var board1 = new ChessBoard('board1', cfg);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

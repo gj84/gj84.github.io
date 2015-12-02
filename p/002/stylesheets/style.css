@@ -1,0 +1,40 @@
+body {
+  margin-top: 20px;
+  background-color: #EADBC4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', Georgia, Times, serif;
+}
+
+p, div {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+#board-buttons {
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+#board-buttons button {
+  display: inline;
+  float: left;
+  margin-right: 4px;
+}
+
+.highlight {
+  background-color: #F3F315;
+}
+
+.ct-chart {
+	margin-top: 20px;
+	height: 200px;
+}
+
+#game-data {
+	background-color: white;
+	padding: 20px 30px;
+	border: 1px solid gray;
+}

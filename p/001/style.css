@@ -1,0 +1,107 @@
+* {
+    font-family: arial;
+    color: gray;
+}
+
+div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#left {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+#cy {
+  height: 90%;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+#right {
+  float: right;
+  width: 50%;
+}
+
+#form, table {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: gray;
+  font-size: 20px;
+  text-align: center;
+}
+
+input {
+    height: 40px;
+    width: 200px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+table {
+  border-collapse: collapse;
+  float: left;
+}
+
+#result {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+  margin-left: 30px;
+}
+
+#text-result {
+  clear: left;
+  visibility: hidden;
+  color: gray;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+th {
+    font-weight: normal;
+    color: blue;
+    padding-right: 20px;
+    text-align: right;
+}
+
+td {
+    width: 20px;
+    text-align: right;
+}
+
+.fade {
+  color: black;
+  /*opacity: 1;
+ 
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;*/
+}
+
+#question {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#whatis {
+  width: 300px;
+  position: absolute;
+  right: 200px;
+  bottom: 10px; 
+  visibility: hidden;
+}
