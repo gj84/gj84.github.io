@@ -210,7 +210,7 @@ window.onload = function() {
         }
         else {
             var imgsrc = "img/wrong.png";
-            var text = "nopes, no es gráfica :(";
+            var text = "no, no es gráfica :(";
             var color = "#d40000";
         }
         
