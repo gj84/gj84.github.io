@@ -15,8 +15,8 @@ body {
 }
 
 #left {
-  float: left;
-  width: 50%;
+  /*float: left;
+  width: 50%;*/
   padding: 5px;
 }
 
@@ -27,8 +27,8 @@ body {
 }
 
 #right {
-  float: right;
-  width: 50%;
+  /*float: right;
+  width: 50%;*/
 }
 
 #form, table {
