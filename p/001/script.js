@@ -1,7 +1,7 @@
 /*refactor this piece of sh... code*/
 
 window.onload = function() {
-    var help = document.getElementById('img-question');
+    /*var help = document.getElementById('img-question');
     var whatis = document.getElementById('whatis');
     help.onclick = function() {
         console.log(whatis.style.visibility);
@@ -15,11 +15,16 @@ window.onload = function() {
             help.src = "img/questionb.png";
             return true;
         }
-    }
+    }*/
 
+    
 
     var textbox = document.getElementById('sucession');
     textbox.onkeypress = function (e) {
+        //remove the class for valid and wrong succession
+        $("#sucession").parent().removeClass("has-error");      
+        $("#sucession").parent().removeClass("has-success");     
+
         if (e.keyCode == 13) {    
             var input = textbox.value;
             document.getElementById('table').innerHTML = "";
@@ -31,12 +36,18 @@ window.onload = function() {
             //console.log(input_parser(input));
 
             if (valid_input(input)){
+                $("#sucession").parent().addClass("has-success");
                 var sucession = input_parser(input);
                 algorithm(sucession);
                 if (sequence_graphical(sucession)){
                     setTimeout(draw_graph,3000,sucession);
                 };
+            }
+
+            else {
+                $("#sucession").parent().addClass("has-error");
             };
+
 
         };
     };
@@ -205,12 +216,12 @@ window.onload = function() {
     function table_result(is_graph) {
         if (is_graph){
             var imgsrc = "img/accepted.png";    
-            var text = "correcto, es gráfica ;)";
+            var text = "graphic";
             var color = "#00ff00";
         }
         else {
             var imgsrc = "img/wrong.png";
-            var text = "no, no es gráfica :(";
+            var text = "not graphic";
             var color = "#d40000";
         }
         
