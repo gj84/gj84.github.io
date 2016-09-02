@@ -52,33 +52,6 @@ function distribute_edges(nodes,edges){
 
 }
 
-
-/*
-[[a,3],[b,3],[c,2],[d,2],[e,2]] -> [[a,b],[a,c],[a,d],[b,e],[b,c],[e,d]]
-
-
-3,3,2,2,2
-a b c d e
-
-a,b  a -= 1 b-=1
-a,c  a -= 1 c-=1
-a,d  a -= 1 d-=1
-
-2,1,1,2
-b c d e
-ordenar
-2,2,1,1
-b e c d
-
-b,e  b-=1 e-=1
-b,c  b-=1 c-=1
-
-1,1
-e d
-
-e,d  d-=1 e-=1
-*/
-
 function create_graph(sequence){
   var n = sequence.length;
   var names = [];
@@ -113,49 +86,7 @@ function draw_graph(sequence) {
   var cy = cytoscape({
       container: document.getElementById('cy'), // container to render in
       elements: el,
-  /*  elements: [ // list of graph elements to start with
-      { // node a
-        data: {
-          id: 'a'
-        }
-      }, 
-      { // node b
-        data: {
-          id: 'b'
-        }
-      }, 
-          { // node b
-        data: {
-          id: 'c'
-        }
-      }, 
-          { // node b
-        data: {
-          id: 'd'
-        }
-      }, 
-      { // edge ab
-        data: {
-          id: 'ab',
-          source: 'a',
-          target: 'b'
-        }
-      },
-          { // edge ab
-        data: {
-          id: 'ad',
-          source: 'a',
-          target: 'd'
-        }
-      },
-          { // edge ab
-        data: {
-          id: 'cd',
-          source: 'c',
-          target: 'd'
-        }
-      }
-    ],*/
+
 
     style: [ // the stylesheet for the graph
       {
@@ -172,13 +103,15 @@ function draw_graph(sequence) {
         selector: 'edge',
         style: {
           'width': 5,
-          'line-color': '#ccc',
+          //'line-color': '#ccc',
+          'selection-box-color': '#ccc',
+          'line-color': '#ccd9ff'
         }
       }
     ],
 
     layout: {
-      name: 'random',
+        name:'random'
     }
   });
 }

@@ -1,23 +1,4 @@
-/*refactor this piece of sh... code*/
-
 window.onload = function() {
-    /*var help = document.getElementById('img-question');
-    var whatis = document.getElementById('whatis');
-    help.onclick = function() {
-        console.log(whatis.style.visibility);
-        if (whatis.style.visibility == "visible"){
-            whatis.style.visibility = "hidden";
-            help.src = "img/question.png";
-            return true;
-        }
-        else {
-            whatis.style.visibility = "visible";   
-            help.src = "img/questionb.png";
-            return true;
-        }
-    }*/
-
-    
 
     var textbox = document.getElementById('sucession');
     textbox.onkeypress = function (e) {
@@ -29,11 +10,6 @@ window.onload = function() {
             var input = textbox.value;
             document.getElementById('table').innerHTML = "";
             document.getElementById('cy').innerHTML = "";
-            result.style.backgroundImage = "url('')";
-            //console.log(sucession_checker(input));
-            //console.log(valid_input(input));
-            //console.log(algorithm(input));
-            //console.log(input_parser(input));
 
             if (valid_input(input)){
                 $("#sucession").parent().addClass("has-success");
@@ -61,12 +37,17 @@ window.onload = function() {
     function input_parser(input) {
         //returns integer array
         var array = input.split(",");
+        var newArray = [];
+
         for (var i = 0; i < array.length; i++) {
             iel = array[i];
             iel = iel.replace(/ /g,"");
-            array[i] = parseInt(iel); 
+            newiel = parseInt(iel);
+            if (!isNaN(newiel)){
+                newArray.push(newiel);    
+            };
         };
-        return array;          
+        return newArray;          
     };
 
     function stop_condition(array) {
@@ -153,7 +134,6 @@ window.onload = function() {
     };
 
 
-
 /*------------------- DRAWING ----------------------*/
 
 
@@ -224,28 +204,14 @@ window.onload = function() {
             var text = "not graphic";
             var color = "#d40000";
         }
-        
-        var result = document.getElementById("result");
-        result.style.backgroundImage = "url('"+imgsrc+"')";
+
+    
+        $("#table > tr:last").append($("<td id='td-result' width='80px' colspan='6' rowspan='6'><img style='padding-left: 10px;' width='30px' height='15px' id='result' src='"+imgsrc+"'/></td>"));
+
         var t = document.getElementById("table");
-        var pos = getPosition(t);
-        var he = t.offsetHeight;
-        var wi = t.offsetWidth;
-        var x = pos.x + wi;
-        var y = pos.y + he;
-        //console.log([x,y]);
+        
         var divresult = document.getElementById('result');
-        divresult.style.position = "fixed";
-        divresult.style.left = x;
-        divresult.style.top = y-22;
-        /*var td = document.createElement("TD");
-        var img = document.createElement("IMG");
-        img.src = imgsrc;
-        img.style.width = "30px";
-        img.style.height = "30px";
-        img.style.float = "top";
-        td.appendChild(img);
-        trows[trows.length-1].appendChild(td);*/
+        
         var text_result = document.getElementById('text-result');
         text_result.innerHTML = text;
         text_result.style.color = color;

@@ -23,15 +23,15 @@
       <input type="text" class="form-control" name="sucession" id="sucession" value="3,3,2,2,2"><br>
     </div>
 
-    <div id="tb-container">
-        <div id="pp"><table id="table"></table></div>
-        <div id="result"></div>
-        <div id="text-result"></div>
+    <div id="alg-execution">
+        <div id="tb-container"><table id="table"></table></div>
     </div>
+    <div id="text-result"></div>
   </div>
 
 
     <div id="left" class="col-md-6">
+        <h2>Example (if posible)</h2>
         <div id="cy"></div>
     </div>
 
@@ -47,12 +47,55 @@
       </div>
       <div class="modal-body">
         <p>Input a positive integer list separated by commas on textbox, press enter and see whether if it is <a href="https://en.wikipedia.org/wiki/Graph_realization_problem">graphic</a> or not. e.g.: </p>
-        <div  class="col-centered"><span>9,8,7,5,5,5,3,2,1</span></div>
-
-        <p>A graph example is given if the list is graphic</p>
-        <br/>
         <p>
-          <a href="http://github.com/gj84">gj84</a> code kata with Cytoscapejs - Bootstrap - Jquery
+          A graphic list means it could be posible to build a graph wich has a sequence degrees equal to the list. If true, a graph example is draw at right.
+        </p>
+        <div  class="col-centered"><span>9,8,7,5,5,5,3,2,1</span></div>
+        <br/>
+
+<div id="helpcarousel" class="carousel" data-ride="carousel">
+  
+  <ol class="carousel-indicators">
+    <li data-target="#helpcarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#helpcarousel" data-slide-to="1"></li>
+    <li data-target="#helpcarousel" data-slide-to="2"></li>
+    <li data-target="#helpcarousel" data-slide-to="3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <center><h4>Graphic input example</h4></center>
+      <img class="centered" src="img/graphicseq.png" alt="Graphic list">
+    </div>
+
+    <div class="item">
+      <center><h4>Graph example</h4></center>      
+      <img class="centered" src="img/graphexample.png" alt="Graph example">
+    </div>
+
+    <div class="item">
+      <center><h4>Not graphic input example</h4></center>
+      <img class="centered" src="img/notgraphic1.png" alt="not graphic">
+    </div>
+
+    <div class="item">
+      <center><h4>Not graphic input example</h4></center>
+      <img class="centered" src="img/notgraphic2.png" alt="not graphic">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#helpcarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#helpcarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+
+        <br/><br/>
+        <p>
+          <a href="http://github.com/gj84">gj84</a> code with Cytoscapejs - Bootstrap - Jquery
         </p>
       
       </div>
