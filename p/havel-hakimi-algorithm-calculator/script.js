@@ -1,5 +1,12 @@
 window.onload = function() {
 
+    //run the example at start
+    $("#sucession").parent().addClass("has-success");
+    var sucession = input_parser($("#sucession").val());
+    algorithm(sucession);
+    setTimeout(draw_graph,2000,sucession);
+
+
     var textbox = document.getElementById('sucession');
     textbox.onkeypress = function (e) {
         //remove the class for valid and wrong succession
@@ -16,18 +23,15 @@ window.onload = function() {
                 var sucession = input_parser(input);
                 algorithm(sucession);
                 if (sequence_graphical(sucession)){
-                    setTimeout(draw_graph,3000,sucession);
+                    setTimeout(draw_graph,2000,sucession);
                 };
             }
 
             else {
                 $("#sucession").parent().addClass("has-error");
             };
-
-
         };
     };
-
 
     function valid_input(input) {
         var re = new RegExp("^( *([0-9])+ *,?)+$");
@@ -161,8 +165,8 @@ window.onload = function() {
             row.appendChild(td);
         };
         table.appendChild(row);
-
     }
+
 
     function highlight_last_row() {
         var table = document.getElementById("table");

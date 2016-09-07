@@ -86,6 +86,12 @@ td {
     text-align: right;
 }
 
+.tdhighlighted {
+  background-color: #e6e600;
+  border: 1px solid gray;
+  text-align: center;
+  font-weight: bolder;
+}
 
 .fade {
   color: black;
